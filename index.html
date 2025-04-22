@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Генератор компліментів 💬</title>
+</head>
+<body style="font-family: Arial; text-align: center; padding: 50px;">
+
+  <h1>🤖 Генератор компліментів</h1>
+  <p id="compliment" style="font-size: 1.5em; margin: 30px 0;"></p>
+  <button onclick="generateCompliment()" style="font-size: 1em; padding: 10px 20px;">Натисни для компліменту</button>
+
+  <script>
+    const compliments = [
+      "Ти сьогодні виглядаєш чудово!",
+      "У тебе класно виходить!",
+      "Твій код — чиста поезія!",
+      "Ти — неймовірна людина.",
+      "Твоя усмішка — найкращий декоратор.",
+      "Ти як StackOverflow — завжди виручаєш!",
+      "Якщо б ти був(ла) фреймворком — то тільки найкращим 💪"
+    ];
+
+    function generateCompliment() {
+      const randomIndex = Math.floor(Math.random() * compliments.length);
+      document.getElementById("compliment").textContent = compliments[randomIndex];
+    }
+
+    generateCompliment();
+  </script>
+
+</body>
+</html>
