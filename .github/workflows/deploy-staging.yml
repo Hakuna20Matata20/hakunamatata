@@ -27,6 +27,8 @@ jobs:
         run: |
           az webapp up \
             --resource-group flask-rg \
-            --name flask-demo-ua2025-staging \
+            --name hakuna-staging-html \
+            --location "westeurope" \
             --html
+
 
