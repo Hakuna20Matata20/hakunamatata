@@ -28,4 +28,5 @@ jobs:
           az webapp up \
             --resource-group flask-rg \
             --name flask-demo-ua2025-staging \
-            --runtime "PYTHON|3.11"
+            --html
+
