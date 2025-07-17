@@ -1,5 +1,5 @@
 from flask import Flask
-app = Flask(__name__)
+app = Flask(flask-api-ua2025-prod)
 
 @app.route('/')
 def home():
