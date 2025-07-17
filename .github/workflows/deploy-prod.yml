@@ -24,7 +24,6 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Deploy to Azure Web App (Production)
-             - name: Deploy to Azure Web App (Production)
         run: |
           az webapp up \
             --name flask-api-ua2025-prod \
