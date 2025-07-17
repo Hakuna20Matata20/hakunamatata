@@ -30,6 +30,6 @@ jobs:
       - name: Deploy ZIP to Azure
         run: |
           az webapp deployment source config-zip \
-            --resource-group flask-rg \
+            --resource-group flask-api-ua2025_group \
             --name flask-api-ua2025 \
             --src flask-app.zip
