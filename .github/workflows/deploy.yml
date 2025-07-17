@@ -31,9 +31,10 @@ jobs:
       - name: Deploy to Azure Web App
         run: |
           az webapp up \
-            --name flask-api-ua2025 \
-            --resource-group flask-rg \
-            --plan flask-api-plan \
-            --location westeurope \
-            --runtime "PYTHON|3.11" \
-            --sku F1
+          --name flask-api-ua2025 \
+          --resource-group flask-rg \
+          --plan flask-api-plan \
+          --runtime "PYTHON|3.11" \
+          --sku F1 \
+          --overwrite
+
