@@ -1,4 +1,4 @@
-name: Deploy to Azure Web App
+name: Deploy Flask to Azure
 
 on:
   push:
@@ -16,20 +16,24 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
-      - name: Zip the Flask app
+      - name: Install dependencies
         run: |
-          zip -r flask-app.zip .
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
       - name: Azure Login
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Deploy ZIP to Azure
+      - name: Deploy to Azure Web App
         run: |
-          az webapp deployment source config-zip \
-            --resource-group flask-api-ua2025_group \
+          az webapp up \
             --name flask-api-ua2025 \
-            --src flask-app.zip
+            --resource-group flask-api-ua2025_group \
+            --plan flask-api-plan \
+            --location westeurope \
+            --runtime "PYTHON|3.11" \
+            --sku F1
