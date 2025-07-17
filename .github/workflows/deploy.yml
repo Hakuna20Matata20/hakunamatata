@@ -34,6 +34,6 @@ jobs:
             --name flask-api-ua2025 \
             --resource-group flask-rg \
             --plan flask-api-plan \
-            --location westeurope \
+            --location canadacentral \
             --runtime "PYTHON|3.11" \
             --sku F1
