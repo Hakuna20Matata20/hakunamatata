@@ -1,0 +1,33 @@
+name: Deploy to Azure Production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy to Azure Web App (Production)
+        run: |
+          az webapp up \
+            --name flask-api-ua2025-prod \
+            --resource-group flask-api-ua2025_group \
+            --plan flask-api-plan \
+            --runtime "PYTHON|3.11" \
+            --sku F1
